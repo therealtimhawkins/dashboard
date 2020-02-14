@@ -1,9 +1,13 @@
 <template>
-  <div></div>
+  <div><NavBar /></div>
 </template>
 
 <script>
+import NavBar from "./NavBar"
 export default {
-  name: "Dashboard"
+  name: "Dashboard",
+  components: {
+    NavBar
+  }
 }
 </script>
