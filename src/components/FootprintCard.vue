@@ -2,8 +2,8 @@
   <div class="column is-12">
     <div class="box">
       <div class="columns is-vcentered">
-        <div class="column">{{ date }}</div>
-        <div class="column">
+        <div class="column is-narrow">{{ date }}</div>
+        <div class="column is-narrow">
           <div
             class="tag is-link is-light is-medium has-text-weight-bold is-uppercase"
           >
@@ -11,26 +11,26 @@
           </div>
         </div>
         <div class="column">{{ itemQuantity }} items</div>
-        <div class="column is-3 button is-info is-light">
-          <div class="columns">
-            <div class="column">
-              <div class="">
+        <div class="column is-narrow">
+          <div class="field has-addons">
+            <button class="button is-link is-light">
+              <p class="control">
                 <i class="fa fa-pound-sign"></i><span class="">4.90</span>
-              </div>
-            </div>
-            <div class="column">
-              <div class="">
+              </p>
+            </button>
+            <p class="control">
+              <button class="button is-link is-light">
                 <i class="fa fa-tree"></i><span class="">1.7</span>
-              </div>
-            </div>
-            <div class="column">
-              <div class="">
+              </button>
+            </p>
+            <p class="control">
+              <button class="button is-link is-light">
                 <i class="fa fa-gas-pump"></i><span class="">84</span>
-              </div>
-            </div>
+              </button>
+            </p>
           </div>
         </div>
-        <div class="column">
+        <div class="column is-narrow">
           <div class="field has-addons">
             <p class="control">
               <button class="button is-link is-light">
@@ -69,7 +69,7 @@
             </p>
           </div>
         </div>
-        <div class="column">
+        <div class="column is-narrow">
           <button class="button is-link is-light">
             <span class="icon is-small">
               <i class="fas fa-chart-pie"></i>
