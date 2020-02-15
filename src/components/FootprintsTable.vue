@@ -1,6 +1,7 @@
 <template>
   <div class="section">
     <div class="container">
+      <FootprintsGraph />
       <div class="columns is-multiline"></div>
       <div class="column is-12">
         <div class="columns is-size-5">
@@ -26,12 +27,14 @@
 </template>
 
 <script>
+import FootprintsGraph from "./FootprintsGraph"
 import FootprintCard from "./FootprintCard"
 
 export default {
   name: "FootprintsTable",
   components: {
-    FootprintCard
+    FootprintCard,
+    FootprintsGraph
   },
   props: {
     footprints: {

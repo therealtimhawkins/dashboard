@@ -1,16 +1,14 @@
 <template>
   <div class="box">
     <div class="columns is-vcentered">
-      <div class="column is-narrow">{{ date }}</div>
-      <div class="column is-narrow">
+      <div class="column is-narrow has-text-centered">{{ date }}</div>
+      <div class="column is-narrow has-text-centered">
         <div
           class="tag is-link is-light is-medium has-text-weight-bold is-uppercase"
-        >
-          {{ footprint.name }}
-        </div>
+        >{{ footprint.name }}</div>
       </div>
-      <div class="column">{{ itemQuantity }} items</div>
-      <div class="column is-narrow">
+      <div class="column has-text-centered">{{ itemQuantity }} items</div>
+      <div class="column is-narrow has-text-centered">
         <div class="field has-addons">
           <p class="control">
             <button class="button is-link is-light">
@@ -38,7 +36,7 @@
           </p>
         </div>
       </div>
-      <div class="column is-narrow">
+      <div class="column is-narrow has-text-centered">
         <div class="field has-addons">
           <p class="control">
             <button class="button is-link is-light">
@@ -77,7 +75,7 @@
           </p>
         </div>
       </div>
-      <div class="column is-narrow">
+      <div class="column is-narrow has-text-centered">
         <button class="button is-link is-light">
           <span class="icon is-small">
             <i class="fas fa-chart-pie"></i>
@@ -90,7 +88,7 @@
 </template>
 
 <script>
-import moment from "moment"
+import moment from "moment";
 
 export default {
   name: "FootprintCard",
@@ -102,17 +100,17 @@ export default {
   },
   computed: {
     date() {
-      return moment(this.footprint.time).format("DD/MM/YYYY")
+      return moment(this.footprint.time).format("DD/MM/YYYY");
     },
     itemQuantity() {
       const result = this.footprint.items.reduce((acc, currentItem) => {
-        console.log("acc: ", acc)
-        console.log(currentItem.quantity)
-        return acc + currentItem.quantity
-      }, 0)
-      console.log(result)
-      return result
+        console.log("acc: ", acc);
+        console.log(currentItem.quantity);
+        return acc + currentItem.quantity;
+      }, 0);
+      console.log(result);
+      return result;
     }
   }
-}
+};
 </script>
