@@ -1,31 +1,30 @@
 <template>
   <div id="chart">
-    <apexchart
-      type="area"
-      height="200"
-      :options="chartOptions"
-      :series="series"
-    ></apexchart>
+    <apexchart type="area" height="200" :options="chartOptions" :series="series"></apexchart>
   </div>
 </template>
 
 <script>
-import VueApexCharts from "vue-apexcharts"
+import VueApexCharts from "vue-apexcharts";
 
 export default {
   name: "NavBar",
   components: {
     apexchart: VueApexCharts
   },
+  props: {
+    footprints: {
+      type: Array,
+      required: true
+    }
+  },
   data: function() {
     return {
       series: [
         {
-          name: "series1",
           data: [31, 40, 28, 51, 42, 109, 100]
         },
         {
-          name: "series2",
           data: [11, 32, 45, 32, 34, 52, 41]
         }
       ],
@@ -58,7 +57,7 @@ export default {
           }
         }
       }
-    }
+    };
   }
-}
+};
 </script>

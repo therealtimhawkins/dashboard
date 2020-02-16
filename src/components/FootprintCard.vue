@@ -3,11 +3,14 @@
     <div class="columns is-vcentered">
       <div class="column is-narrow has-text-centered">{{ date }}</div>
       <div class="column is-narrow has-text-centered">
-        <div
-          class="tag is-link is-light is-medium has-text-weight-bold is-uppercase"
-        >{{ footprint.name }}</div>
+        <div class="has-text-weight-bold is-uppercase">{{ footprint.name }}</div>
       </div>
-      <div class="column has-text-centered">{{ itemQuantity }} items</div>
+      <div class="column has-text-centered">
+        <span class="icon is-small">
+          <i class="fas fa-shopping-bag"></i>
+        </span>
+        <span>{{ ' ' + itemQuantity }} items</span>
+      </div>
       <div class="column is-narrow has-text-centered">
         <div class="field has-addons">
           <p class="control">
@@ -36,42 +39,42 @@
           </p>
         </div>
       </div>
-      <div class="column is-narrow has-text-centered">
+      <div class="column has-text-centered">
         <div class="field has-addons">
           <p class="control">
-            <button class="button is-link is-light">
-              <a
-                href="mailto:${contact.email}?subject=Your Carbon Footprint&body=${email}"
-                class="icon"
-                data-show-count="false"
-                target="_blank"
-              >
+            <a
+              href="mailto:${contact.email}?subject=Your Carbon Footprint&body=${email}"
+              data-show-count="false"
+              target="_blank"
+              class="button is-light is-link"
+            >
+              <span class="icon">
                 <i class="fas fa-2x fa-envelope-square"></i>
-              </a>
-            </button>
+              </span>
+            </a>
           </p>
           <p class="control">
-            <button class="button is-link is-light">
-              <a
-                href="https://twitter.com/intent/tweet?button_hashtag=ClimateCrisis&ref_src=twsrc%5Etfw&text=${tweet}"
-                class="icon"
-                data-show-count="false"
-                target="_blank"
-              >
+            <a
+              href="https://twitter.com/intent/tweet?button_hashtag=ClimateCrisis&ref_src=twsrc%5Etfw&text=${tweet}"
+              class="button is-light is-link"
+              data-show-count="false"
+              target="_blank"
+            >
+              <span class="icon">
                 <i class="fab fa-2x fa-twitter-square"></i>
-              </a>
-            </button>
+              </span>
+            </a>
           </p>
           <p class="control">
-            <button class="button is-link is-light">
-              <a
-                class="icon"
-                href="https://www.facebook.com/sharer/sharer.php?u=example.org"
-                target="_blank"
-              >
+            <a
+              class="button is-link is-light"
+              href="https://www.facebook.com/sharer/sharer.php?u=example.org"
+              target="_blank"
+            >
+              <span class="icon">
                 <i class="fab fa-2x fa-facebook-square"></i>
-              </a>
-            </button>
+              </span>
+            </a>
           </p>
         </div>
       </div>
