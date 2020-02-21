@@ -1,8 +1,6 @@
 <template>
-  <nav class="navbar is-primary" role="navigation" aria-label="main navigation">
-    <div class="container">
-      <div class="title is-4 is-centered has-text-white" id="logo">GreenPay.</div>
-    </div>
+  <nav class="navbar is-info" role="navigation" aria-label="main navigation">
+    <div class="title is-3 is-centered has-text-white" id="logo">Bigfoot.</div>
   </nav>
 </template>
 
@@ -18,6 +16,6 @@ export default {
 #logo {
   font-family: "Playfair Display", serif, italic;
   font-weight: 900;
-  padding: 10px 0 0 0;
+  padding: 10px 0 0 12px;
 }
 </style>
