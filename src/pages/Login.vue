@@ -1,19 +1,27 @@
 <template>
-  <section class="hero is-info is-fullheight">
-    <Logo passClass="title is-3 has-text-white-bis" />
+  <section class="hero is-fullheight">
+    <NavBar v-bind="{ colours: { navbar: 'is-info', logo: 'has-text-black-bis' } }" />
     <div class="hero-body">
       <div class="container">
-        <div class="columns is-centered">
-          <div class="column is-5-tablet is-4-desktop is-3-widescreen">
-            <form>
-              <p class="title is-4 is-valigned is-spaced has-text-white">
-                <span class="icon is-medium has-text-white">
-                  <i class="fa fa-user-lock"></i>
+        <div class="columns">
+          <div class="column is-vcentered">
+            <div class="is-hidden-mobile">
+              <h1 class="title is-2 is-bold" id="logo">Bigfoot.</h1>
+            </div>
+            <h2 class="subtitle is-5">Calculate and offset your carbon footprint on the fly.</h2>
+            <p class="buttons">
+              <a href="#quote-section" class="button is-solid">
+                <span class="icon is-small">
+                  <i class="fas fa-key"></i>
                 </span>
-                <span>&nbsp;Log in</span>
-              </p>
+                <span class="has-text-weight-bold">Get an API key</span>
+              </a>
+            </p>
+          </div>
+          <div class="column is-5">
+            <form>
               <div class="field">
-                <label class="label has-text-white-bis">Email</label>
+                <label class="label">Email</label>
                 <div class="control has-icons-left">
                   <input
                     class="input"
@@ -28,7 +36,7 @@
                 </div>
               </div>
               <div class="field">
-                <label class="label has-text-white-bis">Password</label>
+                <label class="label">Password</label>
                 <div class="control has-icons-left">
                   <input
                     class="input"
@@ -44,14 +52,14 @@
               </div>
               <div>
                 <p>
-                  <router-link
-                    to="/signup"
-                    class="has-text-weight-semibold has-text-white router-link-active"
-                  >I'd like to create an account</router-link>
+                  <a
+                    href="https://bigfoot.world/#quote-section"
+                    class="has-text-weight-semibold has-text-black-bis router-link-active"
+                  >I'd like to create an account</a>
                 </p>
                 <p>
                   <a
-                    class="has-text-weight-semibold has-text-white router-link-active"
+                    class="has-text-weight-semibold has-text-black-bis router-link-active"
                   >I've forgotten my password</a>
                 </p>
               </div>
@@ -82,6 +90,9 @@
 <script>
 export default {
   name: "Login",
+  components: {
+    NavBar: () => import("../components/NavBar")
+  },
   data: function() {
     return {
       email: "",
@@ -96,3 +107,13 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap");
+
+#logo {
+  font-family: "Playfair Display", serif, italic;
+  font-weight: 900;
+  padding-right: 10px;
+}
+</style>

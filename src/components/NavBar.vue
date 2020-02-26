@@ -1,21 +1,34 @@
 <template>
-  <nav class="navbar is-info" role="navigation" aria-label="main navigation">
-    <div class="title is-3 is-centered has-text-white" id="logo">Bigfoot.</div>
+  <nav class="navbar" :class="colours.navbar" role="navigation" aria-label="main navigation">
+    <div id="logo-container">
+      <div class="title is-3 is-centered" :class="colours.logo">
+        <span id="logo">Bigfoot.</span>
+        <span class="is-hidden-mobile has-text-weight-light is-size-4">dashboard</span>
+      </div>
+    </div>
   </nav>
 </template>
 
 <script>
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  props: {
+    colours: {
+      type: Object,
+      require: true
+    }
+  }
 };
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css?family=Playfair+Display:900:italic&display=swap");
-
 #logo {
   font-family: "Playfair Display", serif, italic;
   font-weight: 900;
-  padding: 10px 0 0 12px;
+  padding-right: 10px;
+}
+
+#logo-container {
+  padding: 8px 0 0 12px;
 }
 </style>

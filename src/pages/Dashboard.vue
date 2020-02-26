@@ -1,20 +1,18 @@
 <template>
   <div>
-    <NavBar />
-    <Login />
+    <!-- <Login /> -->
+    <Main />
   </div>
 </template>
 
 <script>
-import NavBar from "./NavBar";
-import Login from "./Login";
+import Main from "./Main";
 import footprints from "../mocks/footprints.json";
 
 export default {
   name: "Dashboard",
   components: {
-    NavBar,
-    Login
+    Main
   },
   data: function() {
     return {
