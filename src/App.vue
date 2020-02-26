@@ -1,16 +1,16 @@
 <template>
   <div id="app">
-    <Dashboard />
+    <NavBar v-bind="{ colours: { logo: 'has-text-black-bis' } }" />
+    <router-view></router-view>
   </div>
 </template>
 
 <script>
-import Dashboard from "./pages/Login.vue";
-
+import NavBar from "./components/NavBar"
 export default {
   name: "App",
   components: {
-    Dashboard
+    NavBar
   }
-};
+}
 </script>

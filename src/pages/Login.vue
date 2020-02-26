@@ -1,6 +1,5 @@
 <template>
   <section class="hero is-fullheight">
-    <NavBar v-bind="{ colours: { navbar: 'is-info', logo: 'has-text-black-bis' } }" />
     <div class="hero-body">
       <div class="container">
         <div class="columns">
@@ -8,20 +7,22 @@
             <div class="is-hidden-mobile">
               <h1 class="title is-2 is-bold" id="logo">Bigfoot.</h1>
             </div>
-            <h2 class="subtitle is-5">Calculate and offset your carbon footprint on the fly.</h2>
+            <h2 class="subtitle is-5">
+              Calculate and offset your carbon footprint on the fly.
+            </h2>
             <p class="buttons">
-              <a href="#quote-section" class="button is-solid">
+              <router-link to="/apikey" class="button is-solid">
                 <span class="icon is-small">
                   <i class="fas fa-key"></i>
                 </span>
                 <span class="has-text-weight-bold">Get an API key</span>
-              </a>
+              </router-link>
             </p>
           </div>
           <div class="column is-5">
             <form>
               <div class="field">
-                <label class="label">Email</label>
+                <label class="label has-text-weight-normal">Email</label>
                 <div class="control has-icons-left">
                   <input
                     class="input"
@@ -36,7 +37,7 @@
                 </div>
               </div>
               <div class="field">
-                <label class="label">Password</label>
+                <label class="label has-text-weight-normal">Password</label>
                 <div class="control has-icons-left">
                   <input
                     class="input"
@@ -54,17 +55,21 @@
                 <p>
                   <a
                     href="https://bigfoot.world/#quote-section"
-                    class="has-text-weight-semibold has-text-black-bis router-link-active"
-                  >I'd like to create an account</a>
+                    class="button is-white has-text-weight-semibold"
+                    >I'd like to create an account</a
+                  >
                 </p>
                 <p>
-                  <a
-                    class="has-text-weight-semibold has-text-black-bis router-link-active"
-                  >I've forgotten my password</a>
+                  <a class="button is-white has-text-weight-semibold"
+                    >I've forgotten my password</a
+                  >
                 </p>
               </div>
               <div class="field">
-                <div class="field is-grouped is-grouped-right" v-if="!loggingIn">
+                <div
+                  class="field is-grouped is-grouped-right"
+                  v-if="!loggingIn"
+                >
                   <button @click="login" class="button is-link is-medium">
                     <span class="icon is-small is-left">
                       <i class="fa fa-arrow-right"></i>
@@ -72,7 +77,10 @@
                   </button>
                 </div>
                 <div class="field is-grouped is-grouped-right" v-if="loggingIn">
-                  <button @click="login" class="button is-link is-medium is-outlined is-loading">
+                  <button
+                    @click="login"
+                    class="button is-link is-medium is-outlined is-loading"
+                  >
                     <span class="icon is-small is-left">
                       <i class="fa fa-arrow-right"></i>
                     </span>
@@ -90,22 +98,19 @@
 <script>
 export default {
   name: "Login",
-  components: {
-    NavBar: () => import("../components/NavBar")
-  },
   data: function() {
     return {
       email: "",
       password: "",
       loggingIn: false
-    };
+    }
   },
   methods: {
     login: async function() {
-      console.log(this.email);
+      console.log(this.email)
     }
   }
-};
+}
 </script>
 
 <style scoped>
