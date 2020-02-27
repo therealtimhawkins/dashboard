@@ -1,5 +1,6 @@
 <template>
   <section class="hero is-fullheight">
+    <NavBar v-bind="{ colours: { logo: 'has-text-black-bis' } }" />
     <div class="hero-body">
       <div class="container">
         <div class="columns">
@@ -7,9 +8,7 @@
             <div class="is-hidden-mobile">
               <h1 class="title is-2 is-bold" id="logo">Bigfoot.</h1>
             </div>
-            <h2 class="subtitle is-5">
-              Calculate and offset your carbon footprint on the fly.
-            </h2>
+            <h2 class="subtitle is-5">Calculate and offset your carbon footprint on the fly.</h2>
             <p class="buttons">
               <router-link to="/apikey" class="button is-solid">
                 <span class="icon is-small">
@@ -56,20 +55,14 @@
                   <a
                     href="https://bigfoot.world/#quote-section"
                     class="button is-white has-text-weight-semibold"
-                    >I'd like to create an account</a
-                  >
+                  >I'd like to create an account</a>
                 </p>
                 <p>
-                  <a class="button is-white has-text-weight-semibold"
-                    >I've forgotten my password</a
-                  >
+                  <a class="button is-white has-text-weight-semibold">I've forgotten my password</a>
                 </p>
               </div>
               <div class="field">
-                <div
-                  class="field is-grouped is-grouped-right"
-                  v-if="!loggingIn"
-                >
+                <div class="field is-grouped is-grouped-right" v-if="!loggingIn">
                   <button @click="login" class="button is-link is-medium">
                     <span class="icon is-small is-left">
                       <i class="fa fa-arrow-right"></i>
@@ -77,10 +70,7 @@
                   </button>
                 </div>
                 <div class="field is-grouped is-grouped-right" v-if="loggingIn">
-                  <button
-                    @click="login"
-                    class="button is-link is-medium is-outlined is-loading"
-                  >
+                  <button @click="login" class="button is-link is-medium is-outlined is-loading">
                     <span class="icon is-small is-left">
                       <i class="fa fa-arrow-right"></i>
                     </span>
@@ -96,6 +86,8 @@
 </template>
 
 <script>
+import NavBar from "../components/NavBar";
+
 export default {
   name: "Login",
   data: function() {
@@ -103,14 +95,17 @@ export default {
       email: "",
       password: "",
       loggingIn: false
-    }
+    };
+  },
+  components: {
+    NavBar
   },
   methods: {
     login: async function() {
-      console.log(this.email)
+      console.log(this.email);
     }
   }
-}
+};
 </script>
 
 <style scoped>

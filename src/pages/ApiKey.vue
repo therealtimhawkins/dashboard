@@ -1,5 +1,6 @@
 <template>
   <section class="hero is-fullheight">
+    <NavBar v-bind="{ colours: { logo: 'has-text-black-bis' } }" />
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
@@ -71,10 +72,15 @@
               <div class="column is-5">
                 <div class="columns">
                   <div class="column">
-                    <div class="tag is-large">{{apikey}}</div>
+                    <div class="tag is-large">{{ apikey }}</div>
                   </div>
-                  <div class="column is-2">
-                    <div class="button is-primary has-text-white has-text-weight-bold">Copy</div>
+                  <div class="column is-narrow">
+                    <div
+                      class="button is-primary has-text-white has-text-weight-bold"
+                      v-clipboard:copy="apikey"
+                      v-clipboard:success="onCopy"
+                      v-clipboard:error="onError"
+                    >Copy!</div>
                   </div>
                 </div>
               </div>
@@ -95,6 +101,7 @@
 </template>
 
 <script>
+import NavBar from "../components/NavBar";
 import axios from "axios";
 
 export default {
@@ -104,8 +111,11 @@ export default {
       email: "",
       password: "",
       name: "",
-      apikey: "gh4G72ZPCOpQ5kcSPJRV6uHd9RIh1pZd"
+      apikey: "hEWVxvR6YN1mcGTkp4tsWtjkD4MifgkX"
     };
+  },
+  components: {
+    NavBar
   },
   methods: {
     register: async function() {
@@ -116,6 +126,9 @@ export default {
         );
         this.apikey = result.data.apikey;
       }
+    },
+    onCopy() {
+      this.$notify("API key copied!");
     }
   }
 };
