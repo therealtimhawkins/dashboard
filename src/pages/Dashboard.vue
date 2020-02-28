@@ -8,35 +8,35 @@
       <p class="menu-label is-hidden-touch">Navigation</p>
       <ul class="menu-list">
         <li>
-          <a href="#">
+          <a :class="{ 'is-active': dash === 'Home' }" @click="sidebarClicked('Home')">
             <span class="icon">
               <i class="fa fa-home"></i>
             </span> Home
           </a>
         </li>
         <li>
-          <a href="#" class="is-active">
+          <a :class="{ 'is-active': dash === 'Footprints' }" @click="sidebarClicked('Footprints')">
             <span class="icon">
               <i class="fa fa-shoe-prints"></i>
             </span> Footprints
           </a>
         </li>
         <li>
-          <a href="#">
+          <a :class="{ 'is-active': dash === 'Logs' }" @click="sidebarClicked('Logs')">
             <span class="icon">
               <i class="fa fa-database"></i>
             </span> Logs
           </a>
         </li>
         <li>
-          <a href="#">
+          <a :class="{ 'is-active': dash === 'Offsets' }" @click="sidebarClicked('Offsets')">
             <span class="icon">
               <i class="fa fa-tree"></i>
             </span> Offsets
           </a>
         </li>
         <li>
-          <a href="#">
+          <a :class="{ 'is-active': dash === 'Analytics' }" @click="sidebarClicked('Analytics')">
             <span class="icon">
               <i class="fa fa-chart-area"></i>
             </span> Analytics
@@ -46,14 +46,14 @@
       <p class="menu-label is-hidden-touch">USER</p>
       <ul class="menu-list">
         <li>
-          <a href="#">
+          <a :class="{ 'is-active': dash === 'Profile' }" @click="sidebarClicked('Profile')">
             <span class="icon">
               <i class="fa fa-user"></i>
             </span> Profile
           </a>
         </li>
         <li>
-          <a href="#">
+          <a :class="{ 'is-active': dash === 'Account' }" @click="sidebarClicked('Account')">
             <span class="icon">
               <i class="fa fa-file-invoice"></i>
             </span> Account
@@ -63,21 +63,21 @@
       <p class="menu-label is-hidden-touch">HELP</p>
       <ul class="menu-list">
         <li>
-          <a href="#">
+          <a href="https://docs.bigfoot.world/tutorials">
             <span class="icon">
               <i class="fa fa-chalkboard-teacher"></i>
             </span> Tutorials
           </a>
         </li>
         <li>
-          <a href="#">
+          <a href="https://docs.bigfoot.world">
             <span class="icon">
               <i class="fa fa-file-alt"></i>
             </span> Documentation
           </a>
         </li>
         <li>
-          <a href="#">
+          <a :class="{ 'is-active': dash === 'Contact' }" @click="sidebarClicked('Contact')">
             <span class="icon">
               <i class="fa fa-phone"></i>
             </span> Contact
@@ -102,7 +102,17 @@
 <script>
 export default {
   name: "Dashboard",
-  components: {}
+  components: {},
+  data: function() {
+    return {
+      dash: "Home"
+    };
+  },
+  methods: {
+    sidebarClicked(button) {
+      this.dash = button;
+    }
+  }
 };
 </script>
 
