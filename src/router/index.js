@@ -2,6 +2,7 @@ import Vue from "vue"
 import Router from "vue-router"
 import store from "../store"
 import Login from "@/pages/Login"
+import PasswordReset from "@/pages/PasswordReset"
 import ApiKey from "@/pages/ApiKey"
 import Dashboard from "@/pages/Dashboard"
 import Admin from "@/pages/Admin"
@@ -20,6 +21,11 @@ const router = new Router({
       path: "/apikey",
       name: "ApiKey",
       component: ApiKey
+    },
+    {
+      path: "/reset",
+      name: "PasswordReset",
+      component: PasswordReset
     },
     {
       path: "/dashboard",

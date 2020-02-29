@@ -83,7 +83,6 @@ export default {
       let email = this.email;
       let password = this.password;
       await this.$store.dispatch("auth/login", { email, password });
-      console.log("hit");
       this.$router.push("/dashboard");
     }
   }
