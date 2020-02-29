@@ -118,6 +118,9 @@ export default {
       return this.$store.getters["auth/isLoggedIn"];
     }
   },
+  created() {
+    this.$store.dispatch("footprint/getHistory");
+  },
   methods: {
     sidebarClicked(button) {
       this.dash = button;

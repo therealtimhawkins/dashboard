@@ -38,7 +38,7 @@ const store = {
           method: "POST"
         })
           .then(response => {
-            const token = response.data.token
+            const token = response.data.user.token
             const user = response.data.user
             localStorage.setItem("token", token)
             axios.defaults.headers.common["Authorization"] = token
@@ -61,7 +61,7 @@ const store = {
           method: "POST"
         })
           .then(response => {
-            const token = response.data.token
+            const token = response.data.user.token
             const user = response.data.user
             localStorage.setItem("token", token)
             axios.defaults.headers.common["Authorization"] = token
