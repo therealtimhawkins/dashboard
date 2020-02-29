@@ -5,7 +5,7 @@
       <div class="container">
         <div class="columns is-centered">
           <div v-if="!apikey" class="column is-5">
-            <form>
+            <div>
               <div class="field">
                 <label class="label has-text-weight-normal has-text-black-bis">Name</label>
                 <div class="control has-icons-left">
@@ -45,6 +45,21 @@
                   </span>
                 </div>
               </div>
+              <div class="field">
+                <label class="label has-text-weight-normal has-text-black-bis">Confirm password</label>
+                <div class="control has-icons-left">
+                  <input
+                    class="input"
+                    type="password"
+                    placeholder="********"
+                    v-model="password"
+                    required
+                  />
+                  <span class="icon is-small is-left">
+                    <i class="fa fa-lock"></i>
+                  </span>
+                </div>
+              </div>
               <div>
                 <p>
                   <router-link
@@ -63,7 +78,7 @@
                   </button>
                 </div>
               </div>
-            </form>
+            </div>
           </div>
           <div v-if="apikey">
             <div class="section">
@@ -79,7 +94,6 @@
                       class="button is-primary has-text-white has-text-weight-bold"
                       v-clipboard:copy="apikey"
                       v-clipboard:success="onCopy"
-                      v-clipboard:error="onError"
                     >Copy!</div>
                   </div>
                 </div>
@@ -102,7 +116,6 @@
 
 <script>
 import NavBar from "../components/NavBar";
-import axios from "axios";
 
 export default {
   name: "ApiKey",
@@ -111,21 +124,22 @@ export default {
       email: "",
       password: "",
       name: "",
-      apikey: "hEWVxvR6YN1mcGTkp4tsWtjkD4MifgkX"
+      apikey: ""
     };
   },
   components: {
     NavBar
   },
   methods: {
-    register: async function() {
-      if (this.email && this.password && this.name) {
-        const result = await axios.post(
-          process.env.VUE_APP_FOOTPRINTER + "/auth/register",
-          { email: this.email, password: this.password, name: this.name }
-        );
-        this.apikey = result.data.apikey;
-      }
+    async register() {
+      const data = {
+        name: this.name,
+        email: this.email,
+        password: this.password,
+        is_admin: this.is_admin
+      };
+      await this.$store.dispatch("auth/register", data);
+      this.$router.push("/dashboard");
     },
     onCopy() {
       this.$notify("API key copied!");

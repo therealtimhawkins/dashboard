@@ -19,65 +19,44 @@
             </p>
           </div>
           <div class="column is-5">
-            <form>
-              <div class="field">
-                <label class="label has-text-weight-normal">Email</label>
-                <div class="control has-icons-left">
-                  <input
-                    class="input"
-                    type="email"
-                    placeholder="bigfoot@gmail.com"
-                    v-model="email"
-                    required
-                  />
-                  <span class="icon is-small is-left has-text-gray">
-                    <i class="fa fa-envelope"></i>
-                  </span>
-                </div>
+            <div class="field">
+              <label class="label has-text-weight-normal">Email</label>
+              <div class="control has-icons-left">
+                <input class="input" type="email" placeholder="bigfoot@gmail.com" v-model="email" />
+                <span class="icon is-small is-left has-text-gray">
+                  <i class="fa fa-envelope"></i>
+                </span>
               </div>
-              <div class="field">
-                <label class="label has-text-weight-normal">Password</label>
-                <div class="control has-icons-left">
-                  <input
-                    class="input"
-                    type="password"
-                    placeholder="********"
-                    v-model="password"
-                    required
-                  />
+            </div>
+            <div class="field">
+              <label class="label has-text-weight-normal">Password</label>
+              <div class="control has-icons-left">
+                <input class="input" type="password" placeholder="********" v-model="password" />
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            <div>
+              <p>
+                <a
+                  href="https://bigfoot.world/#quote-section"
+                  class="button is-white has-text-weight-semibold"
+                >I'd like to create an account</a>
+              </p>
+              <p>
+                <a class="button is-white has-text-weight-semibold">I've forgotten my password</a>
+              </p>
+            </div>
+            <div class="field">
+              <div class="field is-grouped is-grouped-right">
+                <button @click="login" class="button is-link is-medium">
                   <span class="icon is-small is-left">
-                    <i class="fa fa-lock"></i>
+                    <i class="fa fa-arrow-right"></i>
                   </span>
-                </div>
+                </button>
               </div>
-              <div>
-                <p>
-                  <a
-                    href="https://bigfoot.world/#quote-section"
-                    class="button is-white has-text-weight-semibold"
-                  >I'd like to create an account</a>
-                </p>
-                <p>
-                  <a class="button is-white has-text-weight-semibold">I've forgotten my password</a>
-                </p>
-              </div>
-              <div class="field">
-                <div class="field is-grouped is-grouped-right" v-if="!loggingIn">
-                  <button @click="login" class="button is-link is-medium">
-                    <span class="icon is-small is-left">
-                      <i class="fa fa-arrow-right"></i>
-                    </span>
-                  </button>
-                </div>
-                <div class="field is-grouped is-grouped-right" v-if="loggingIn">
-                  <button @click="login" class="button is-link is-medium is-outlined is-loading">
-                    <span class="icon is-small is-left">
-                      <i class="fa fa-arrow-right"></i>
-                    </span>
-                  </button>
-                </div>
-              </div>
-            </form>
+            </div>
           </div>
         </div>
       </div>
@@ -93,8 +72,7 @@ export default {
   data: function() {
     return {
       email: "",
-      password: "",
-      loggingIn: false
+      password: ""
     };
   },
   components: {
@@ -102,7 +80,11 @@ export default {
   },
   methods: {
     login: async function() {
-      console.log(this.email);
+      let email = this.email;
+      let password = this.password;
+      await this.$store.dispatch("auth/login", { email, password });
+      console.log("hit");
+      this.$router.push("/dashboard");
     }
   }
 };
