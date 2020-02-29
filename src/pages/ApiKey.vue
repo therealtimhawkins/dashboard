@@ -135,11 +135,14 @@ export default {
       const data = {
         name: this.name,
         email: this.email,
-        password: this.password,
-        is_admin: this.is_admin
+        password: this.password
       };
-      await this.$store.dispatch("auth/register", data);
-      this.$router.push("/dashboard");
+      try {
+        const result = await this.$store.dispatch("auth/register", data);
+        this.apikey = result.apikey;
+      } catch (error) {
+        this.$notify("Could not create API key");
+      }
     },
     onCopy() {
       this.$notify("API key copied!");

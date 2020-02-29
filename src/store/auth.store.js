@@ -66,7 +66,7 @@ const store = {
             localStorage.setItem("token", token)
             axios.defaults.headers.common["Authorization"] = token
             commit("auth_success", token, user)
-            resolve(response)
+            resolve(response.data)
           })
           .catch(error => {
             commit("auth_error", error)
