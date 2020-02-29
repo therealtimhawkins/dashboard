@@ -3,9 +3,13 @@
     <NavBar v-bind="{ colours: { logo: 'has-text-black-bis' } }" />
     <div class="hero-body">
       <div class="container">
-        <div class="columns">
-          <div class="column is-vcentered hero-caption">
-            <h1 class="is-size-3" id="logo">Woops, I've misplaced my password...</h1>
+        <div class="columns is-vcentered">
+          <div class="column hero-caption">
+            <h1
+              class="is-size-3 has-text-weight-semibold"
+              id="logo"
+            >Woops, I've misplaced my password...</h1>
+            <h2 class="subtitle is-5">Enter your email and we'll find it for you</h2>
             <br />
             <div class="field">
               <label class="label has-text-weight-normal">Email</label>
