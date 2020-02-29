@@ -1,11 +1,11 @@
 <template>
   <nav class="navbar" :class="colours.navbar" role="navigation" aria-label="main navigation">
-    <div id="logo-container">
+    <a @click="logoClicked" id="logo-container">
       <div class="title is-3 is-centered" :class="colours.logo">
         <span id="logo">Bigfoot.</span>
         <span class="is-hidden-mobile has-text-weight-light is-size-4">dashboard</span>
       </div>
-    </div>
+    </a>
   </nav>
 </template>
 
@@ -16,6 +16,11 @@ export default {
     colours: {
       type: Object,
       require: true
+    }
+  },
+  methods: {
+    logoClicked() {
+      this.$router.push("/");
     }
   }
 };

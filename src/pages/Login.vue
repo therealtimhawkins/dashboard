@@ -39,13 +39,16 @@
             </div>
             <div>
               <p>
-                <a
-                  href="https://bigfoot.world/#quote-section"
+                <router-link
+                  to="/apikey"
                   class="button is-white has-text-weight-semibold"
-                >I'd like to create an account</a>
+                >I'd like to create an account</router-link>
               </p>
               <p>
-                <a class="button is-white has-text-weight-semibold">I've forgotten my password</a>
+                <router-link
+                  to="/reset"
+                  class="button is-white has-text-weight-semibold"
+                >I've forgotten my password</router-link>
               </p>
             </div>
             <div class="field">
