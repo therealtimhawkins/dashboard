@@ -4,10 +4,9 @@
     <div class="hero-body">
       <div class="container">
         <div class="columns">
-          <div class="column is-vcentered">
-            <div class="is-hidden-mobile">
-              <h1 class="is-size-3" id="logo">Woops, I've forgotten my password...</h1>
-            </div>
+          <div class="column is-vcentered hero-caption">
+            <h1 class="is-size-3" id="logo">Woops, I've misplaced my password...</h1>
+            <br />
             <div class="field">
               <label class="label has-text-weight-normal">Email</label>
               <div class="control has-icons-left">
@@ -26,7 +25,11 @@
               </router-link>
             </p>
           </div>
-          <div class="column"></div>
+          <div class="column is-7">
+            <figure class>
+              <img src="@/assets/img/illustrations/password.svg" alt="password" />
+            </figure>
+          </div>
         </div>
       </div>
     </div>
