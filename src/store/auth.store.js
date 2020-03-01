@@ -4,11 +4,11 @@ const store = {
   namespaced: true,
   state: {
     status: "",
-    jwt: localStorage.getItem("token") || "",
+    token: localStorage.getItem("token") || "",
     user: null
   },
   getters: {
-    isLoggedIn: state => !!state.jwt,
+    isLoggedIn: state => !!state.token,
     authStatus: state => state.status
   },
   mutations: {

@@ -4,7 +4,21 @@
     <div class="hero-body">
       <div class="container">
         <div class="columns is-centered">
-          <div v-if="!apikey" class="column is-5">
+          <div v-if="!apikey" class="column is-6">
+            <div class="field">
+              <h1 class="title is-size-3 has-text-weight-medium" id="logo">
+                Get started with your Bigfoot account
+              </h1>
+            </div>
+            <h2 class="subtitle is-6 has-text-weight-light">
+              Find your footprints. Reduce your impact. Satisfy your customers.
+              Do it all with Bigfoots dashboard. Already have an account?
+              <router-link
+                to="/"
+                class="has-text-weight-normal has-text-primary"
+                >Log in</router-link
+              >
+            </h2>
             <div>
               <div class="field">
                 <label class="label has-text-weight-normal has-text-black-bis"
@@ -13,7 +27,7 @@
                 <div class="control has-icons-left">
                   <input
                     class="input"
-                    placeholder="Tim Hawkins"
+                    placeholder="Bigfoot"
                     v-model="name"
                     required
                   />
