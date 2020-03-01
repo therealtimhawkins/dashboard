@@ -1,18 +1,23 @@
 <template>
   <section class="hero is-fullheight">
     <NavBar v-bind="{ colours: { logo: 'has-text-black-bis' } }" />
-    <div class="hero-body">
+    <div class="hero-body" id="background-img">
       <div class="container">
         <div class="columns">
           <div class="column is-vcentered">
-            <div class="is-hidden-mobile">
-              <h1 class="title is-2 is-bold" id="logo">Bigfoot.</h1>
+            <div class="box">
+              <div class="is-hidden-mobile">
+                <h1 class="title is-2 is-bold" id="logo">Bigfoot.</h1>
+              </div>
+              <h2 class="subtitle is-5 has-text-weight-light">
+                Calculate and offset your carbon footprint on the fly.
+              </h2>
             </div>
-            <h2 class="subtitle is-5 has-text-weight-light">
-              Calculate and offset your carbon footprint on the fly.
-            </h2>
             <p class="buttons">
-              <router-link to="/apikey" class="button is-solid">
+              <router-link
+                to="/apikey"
+                class="button is-primary has-text-white-bis"
+              >
                 <span class="icon is-small">
                   <i class="fas fa-key"></i>
                 </span>
@@ -25,6 +30,7 @@
               <label class="label has-text-weight-light">Email</label>
               <div class="control has-icons-left">
                 <input
+                  v-on:keyup.enter="login"
                   class="input"
                   type="email"
                   placeholder="bigfoot@gmail.com"
@@ -39,6 +45,7 @@
               <label class="label has-text-weight-light">Password</label>
               <div class="control has-icons-left">
                 <input
+                  v-on:keyup.enter="login"
                   class="input"
                   type="password"
                   placeholder="********"
@@ -114,5 +121,19 @@ export default {
   font-family: "Playfair Display", serif, italic;
   font-weight: 900;
   padding-right: 10px;
+}
+
+#background-img {
+  background-image: url(../assets/img/illustrations/login.svg);
+  background-size: 50%;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.box {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
 }
 </style>

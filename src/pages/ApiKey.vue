@@ -6,13 +6,12 @@
         <div class="columns is-centered">
           <div v-if="!apikey" class="column is-6">
             <div class="field">
-              <h1 class="title is-size-3 has-text-weight-medium" id="logo">
+              <h1 class="title is-size-3" id="logo">
                 Get started with your Bigfoot account
               </h1>
             </div>
-            <h2 class="subtitle is-6 has-text-weight-light">
-              Find your footprints. Reduce your impact. Satisfy your customers.
-              Do it all with Bigfoots dashboard. Already have an account?
+            <h2 class="subtitle is-5 has-text-weight-light">
+              Find your footprints. Reduce your impact. Already have an account?
               <router-link
                 to="/"
                 class="has-text-weight-normal has-text-primary"
@@ -29,6 +28,7 @@
                   <input
                     class="input"
                     :class="nameClass"
+                    v-on:keyup.enter="login"
                     placeholder="Bigfoot"
                     v-model="name"
                     required
@@ -47,6 +47,7 @@
                   <input
                     class="input"
                     :class="emailClass"
+                    v-on:keyup.enter="login"
                     type="email"
                     placeholder="my@bigfoot.world"
                     v-model="email"
@@ -66,6 +67,7 @@
                   <input
                     class="input"
                     :class="passwordClass"
+                    v-on:keyup.enter="login"
                     type="password"
                     placeholder="********"
                     v-model="password"
@@ -85,6 +87,7 @@
                   <input
                     class="input"
                     :class="passwordClass"
+                    v-on:keyup.enter="login"
                     type="password"
                     placeholder="********"
                     v-model="confirmPassword"
@@ -126,8 +129,10 @@
           </div>
           <div v-if="apikey">
             <div class="section">
-              <div class="title is-4">Here's your API key...</div>
-              <div class="subtitle">
+              <div class="title is-3">
+                Here's your API key {{ this.name }}...
+              </div>
+              <div class="subtitle has-text-weight-light">
                 Keep it somewhere safe, you won't be able to see this again.
               </div>
               <div class="column is-5">
@@ -236,7 +241,6 @@ export default {
       if (this.name && this.email && this.password && this.confirmPassword)
         try {
           const result = await this.$store.dispatch("auth/register", data)
-          console.log(result)
           this.apikey = result.apikey
         } catch (error) {
           this.$notify("Could not create API key")
