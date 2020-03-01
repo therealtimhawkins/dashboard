@@ -61,14 +61,16 @@ const store = {
           method: "POST"
         })
           .then(response => {
-            const token = response.data.user.token
-            const user = response.data.user
+            console.log(response.data)
+            const token = response.data.token
+            const user = response.data.userId
             localStorage.setItem("token", token)
             axios.defaults.headers.common["Authorization"] = token
             commit("auth_success", token, user)
             resolve(response.data)
           })
           .catch(error => {
+            console.log(error)
             commit("auth_error", error)
             localStorage.removeItem("token")
             reject(error)

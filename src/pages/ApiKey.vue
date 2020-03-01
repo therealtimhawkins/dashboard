@@ -236,6 +236,7 @@ export default {
       if (this.name && this.email && this.password && this.confirmPassword)
         try {
           const result = await this.$store.dispatch("auth/register", data)
+          console.log(result)
           this.apikey = result.apikey
         } catch (error) {
           this.$notify("Could not create API key")
