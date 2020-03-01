@@ -21,12 +21,14 @@
             </h2>
             <div>
               <div class="field">
-                <label class="label has-text-weight-normal has-text-black-bis"
+                <label
+                  class="label has-text-weight-normal is-size-7 has-text-black-bis"
                   >Name</label
                 >
                 <div class="control has-icons-left">
                   <input
                     class="input"
+                    :class="nameClass"
                     placeholder="Bigfoot"
                     v-model="name"
                     required
@@ -37,12 +39,14 @@
                 </div>
               </div>
               <div class="field">
-                <label class="label has-text-weight-normal has-text-black-bis"
+                <label
+                  class="label has-text-weight-normal is-size-7 has-text-black-bis"
                   >Email</label
                 >
                 <div class="control has-icons-left">
                   <input
                     class="input"
+                    :class="emailClass"
                     type="email"
                     placeholder="my@bigfoot.world"
                     v-model="email"
@@ -54,7 +58,8 @@
                 </div>
               </div>
               <div class="field">
-                <label class="label has-text-weight-normal has-text-black-bis"
+                <label
+                  class="label has-text-weight-normal is-size-7 has-text-black-bis"
                   >Password</label
                 >
                 <div class="control has-icons-left">
@@ -72,7 +77,8 @@
                 </div>
               </div>
               <div class="field">
-                <label class="label has-text-weight-normal has-text-black-bis"
+                <label
+                  class="label has-text-weight-normal is-size-7 has-text-black-bis"
                   >Confirm password</label
                 >
                 <div class="control has-icons-left">
@@ -89,14 +95,22 @@
                   </span>
                 </div>
               </div>
-              <div>
-                <p>
-                  <router-link
-                    to="/"
-                    class="button is-white has-text-weight-semibold"
-                    >I already have a key</router-link
-                  >
-                </p>
+              <div class="columns">
+                <div class="column is-narrow">
+                  <span class="icon"
+                    ><i class="fas" :class="nameReady"></i></span
+                  ><span class="has-text-weight-light">Name</span>
+                </div>
+                <div class="column is-narrow">
+                  <span class="icon"
+                    ><i class="fas" :class="emailReady"></i></span
+                  ><span class="has-text-weight-light">Email</span>
+                </div>
+                <div class="column is-narrow">
+                  <span class="icon"
+                    ><i class="fas" :class="passwordReady"></i></span
+                  ><span class="has-text-weight-light">Password</span>
+                </div>
               </div>
               <div class="field">
                 <div class="field is-grouped is-grouped-right">
@@ -156,6 +170,7 @@
 
 <script>
 import NavBar from "../components/NavBar"
+import { emailValidation } from "./helpers"
 
 export default {
   name: "ApiKey",
@@ -172,11 +187,42 @@ export default {
     NavBar
   },
   computed: {
+    nameClass() {
+      return {
+        "is-primary": this.name
+      }
+    },
+    nameReady() {
+      return {
+        "fa-check has-text-primary": this.name,
+        "fa-times has-text-danger": !this.name
+      }
+    },
+    emailClass() {
+      return {
+        "is-primary": emailValidation(this.email),
+        "is-danger": !emailValidation(this.email) && this.email.length > 0
+      }
+    },
+    emailReady() {
+      return {
+        "fa-check has-text-primary": emailValidation(this.email),
+        "fa-times has-text-danger": !emailValidation(this.email)
+      }
+    },
     passwordClass() {
       return {
         "is-danger": this.password != this.confirmPassword,
         "is-primary":
           this.password === this.confirmPassword && this.password.length > 7
+      }
+    },
+    passwordReady() {
+      return {
+        "fa-check has-text-primary":
+          this.password === this.confirmPassword && this.password.length > 7,
+        "fa-times has-text-danger":
+          this.password != this.confirmPassword || this.password.length === 0
       }
     }
   },
