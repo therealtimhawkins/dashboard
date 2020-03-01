@@ -98,6 +98,7 @@
     </aside>
     <div class="column">
       <Home v-if="dash === 'Home'" />
+      <Footprints v-if="dash === 'Footprints'" />
     </div>
   </div>
 </template>
@@ -106,7 +107,8 @@
 export default {
   name: "Dashboard",
   components: {
-    Home: () => import("../components/dashboard/Home")
+    Home: () => import("../components/dashboard/Home"),
+    Footprints: () => import("../components/dashboard/Footprints")
   },
   data: function() {
     return {
