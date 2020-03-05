@@ -5,19 +5,15 @@
       <div class="container">
         <div class="columns">
           <div class="column is-vcentered">
-            <div class="box">
-              <div class="is-hidden-mobile">
-                <h1 class="title is-2 is-bold" id="logo">Bigfoot.</h1>
-              </div>
-              <h2 class="subtitle is-5 has-text-weight-light">
-                Calculate and offset your carbon footprint on the fly.
-              </h2>
+            <div class="is-hidden-mobile">
+              <h1 class="title is-1" id="title">Analyse your carbon impact for free.</h1>
             </div>
+            <h2
+              class="is-size-4 has-text-weight-light"
+            >Get deeper insights into your footprints with the Bigfoot dashboard.</h2>
+            <br />
             <p class="buttons">
-              <router-link
-                to="/apikey"
-                class="button is-primary has-text-white-bis"
-              >
+              <router-link to="/apikey" class="button is-primary has-text-white-bis">
                 <span class="icon is-small">
                   <i class="fas fa-key"></i>
                 </span>
@@ -61,15 +57,13 @@
                 <router-link
                   to="/apikey"
                   class="button is-white has-text-weight-normal"
-                  >I'd like to create an account</router-link
-                >
+                >I'd like to create an account</router-link>
               </p>
               <p>
                 <router-link
                   to="/reset"
                   class="button is-white has-text-weight-normal"
-                  >I've forgotten my password</router-link
-                >
+                >I've forgotten my password</router-link>
               </p>
             </div>
             <div class="field">
@@ -89,7 +83,7 @@
 </template>
 
 <script>
-import NavBar from "../components/NavBar"
+import NavBar from "../components/NavBar";
 
 export default {
   name: "Login",
@@ -97,21 +91,21 @@ export default {
     return {
       email: "",
       password: ""
-    }
+    };
   },
   components: {
     NavBar
   },
   methods: {
     login: async function() {
-      let email = this.email
-      let password = this.password
+      let email = this.email;
+      let password = this.password;
       this.$store.dispatch("auth/login", { email, password }).then(() => {
-        this.$router.push("/dashboard")
-      })
+        this.$router.push("/dashboard");
+      });
     }
   }
-}
+};
 </script>
 
 <style scoped>
@@ -123,13 +117,13 @@ export default {
   padding-right: 10px;
 }
 
-#background-img {
+/* #background-img {
   background-image: url(../assets/img/illustrations/login.svg);
   background-size: 50%;
   background-position: left bottom;
   background-repeat: no-repeat;
   background-attachment: fixed;
-}
+} */
 
 .box {
   -webkit-box-shadow: none;

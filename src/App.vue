@@ -20,3 +20,10 @@ export default {
   }
 };
 </script>
+
+<style>
+#title {
+  font-family: "Goudy Bookletter 1911", serif;
+  font-weight: 900;
+}
+</style>
