@@ -16,7 +16,7 @@ const store = {
   actions: {
     getHistory({ commit }) {
       return new Promise(resolve => {
-        axios.get("http://localhost:3000/footprint/history").then(response => {
+        axios.get("http://localhost:3000/dash/history").then(response => {
           const history = response.data.history
           if (history) {
             commit("setHistory", history)
